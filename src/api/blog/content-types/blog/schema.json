@@ -52,6 +52,9 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.header"
+    },
+    "readTime": {
+      "type": "string"
     }
   }
 }
