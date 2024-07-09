@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.header"
-    },
     "likes": {
       "type": "integer",
       "default": 0
@@ -52,6 +47,11 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.header"
     }
   }
 }

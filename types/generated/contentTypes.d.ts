@@ -374,7 +374,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Header: Attribute.Component<'shared.header'>;
     likes: Attribute.Integer & Attribute.DefaultTo<0>;
     comments: Attribute.Relation<
       'api::blog.blog',
@@ -389,6 +388,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     >;
     thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Attribute.RichText;
+    header: Attribute.Component<'shared.header'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -3,10 +3,10 @@ import type { Schema, Attribute } from '@strapi/strapi';
 export interface SharedHeader extends Schema.Component {
   collectionName: 'components_shared_headers';
   info: {
-    displayName: 'Header';
+    displayName: 'header';
   };
   attributes: {
-    Title: Attribute.String;
+    title: Attribute.String;
   };
 }
 
