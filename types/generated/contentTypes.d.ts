@@ -771,15 +771,15 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    blog: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToOne',
-      'api::blog.blog'
-    >;
     comments: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToMany',
       'api::comment.comment'
+    >;
+    blogs: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::blog.blog'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -819,7 +819,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     tags: Attribute.Relation<'api::blog.blog', 'manyToMany', 'api::tag.tag'>;
     users_permissions_user: Attribute.Relation<
       'api::blog.blog',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
