@@ -412,7 +412,7 @@ export interface ApiCommentComment extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Comment: Attribute.String;
+    comment: Attribute.String;
     users_permissions_user: Attribute.Relation<
       'api::comment.comment',
       'manyToOne',

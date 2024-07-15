@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Comment": {
+    "comment": {
       "type": "string"
     },
     "users_permissions_user": {
