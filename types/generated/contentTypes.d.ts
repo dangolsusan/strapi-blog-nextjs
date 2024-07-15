@@ -388,8 +388,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     >;
     thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Attribute.RichText;
-    header: Attribute.Component<'shared.header'>;
     readTime: Attribute.String;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
