@@ -413,15 +413,15 @@ export interface ApiCommentComment extends Schema.CollectionType {
   };
   attributes: {
     Comment: Attribute.String;
-    blog: Attribute.Relation<
-      'api::comment.comment',
-      'manyToOne',
-      'api::blog.blog'
-    >;
     users_permissions_user: Attribute.Relation<
       'api::comment.comment',
       'manyToOne',
       'plugin::users-permissions.user'
+    >;
+    blog: Attribute.Relation<
+      'api::comment.comment',
+      'manyToOne',
+      'api::blog.blog'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
