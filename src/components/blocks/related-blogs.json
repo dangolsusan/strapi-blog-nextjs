@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_related_blogs",
+  "info": {
+    "displayName": "relatedBlogs"
+  },
+  "options": {},
+  "attributes": {
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.header"
+    }
+  }
+}

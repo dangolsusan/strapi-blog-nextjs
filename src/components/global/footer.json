@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "footer": {
+      "displayName": "footerCol",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-col"
+    }
+  }
+}

@@ -1,15 +1,12 @@
 {
-  "collectionName": "components_shared_headers",
+  "collectionName": "components_blocks_faqs",
   "info": {
-    "displayName": "header",
+    "displayName": "faq",
     "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "label": {
       "type": "string"
     },
     "theme": {
@@ -18,6 +15,11 @@
         "primary",
         "secondary"
       ]
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.question-answer"
     }
   }
 }
