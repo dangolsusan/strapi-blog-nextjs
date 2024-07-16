@@ -24,7 +24,8 @@
         "blocks.related-blogs",
         "blocks.team",
         "blocks.testimonials",
-        "blocks.faq"
+        "blocks.faq",
+        "shared.card"
       ]
     }
   }

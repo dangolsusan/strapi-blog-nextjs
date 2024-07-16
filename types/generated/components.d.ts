@@ -81,6 +81,18 @@ export interface GlobalNavigation extends Schema.Component {
   };
 }
 
+export interface SharedCard extends Schema.Component {
+  collectionName: 'components_shared_cards';
+  info: {
+    displayName: 'card';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedFooterCol extends Schema.Component {
   collectionName: 'components_shared_footer_cols';
   info: {
@@ -136,6 +148,7 @@ declare module '@strapi/types' {
       'blocks.testimonials': BlocksTestimonials;
       'global.footer': GlobalFooter;
       'global.navigation': GlobalNavigation;
+      'shared.card': SharedCard;
       'shared.footer-col': SharedFooterCol;
       'shared.header': SharedHeader;
       'shared.link': SharedLink;
