@@ -909,6 +909,37 @@ export interface ApiGeneralGeneral extends Schema.SingleType {
   };
 }
 
+export interface ApiImageCardImageCard extends Schema.CollectionType {
+  collectionName: 'image_cards';
+  info: {
+    singularName: 'image-card';
+    pluralName: 'image-cards';
+    displayName: 'Image Card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image-card.image-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image-card.image-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -986,6 +1017,7 @@ declare module '@strapi/types' {
       'api::blog.blog': ApiBlogBlog;
       'api::comment.comment': ApiCommentComment;
       'api::general.general': ApiGeneralGeneral;
+      'api::image-card.image-card': ApiImageCardImageCard;
       'api::page.page': ApiPagePage;
       'api::tag.tag': ApiTagTag;
     }

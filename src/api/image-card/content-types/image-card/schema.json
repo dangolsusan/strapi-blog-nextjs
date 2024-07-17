@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "image_cards",
+  "info": {
+    "singularName": "image-card",
+    "pluralName": "image-cards",
+    "displayName": "Image Card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
