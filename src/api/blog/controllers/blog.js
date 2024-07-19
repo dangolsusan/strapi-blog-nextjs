@@ -4,8 +4,45 @@
  */
 
 const { createCoreController } = require("@strapi/strapi").factories;
+const stripe = require("stripe")(
+  process.env.STRAPI_ADMIN_TEST_STRIPE_SECRET_KEY
+);
 
 module.exports = createCoreController("api::blog.blog", ({ strapi }) => ({
+  async createOrder(ctx) {
+    // ctx.body = "hello world";
+    const { body } = ctx.request;
+
+    const charge = await stripe.paymentIntents.create(JSON.parse(body));
+
+    let createOrder = [];
+
+    const datos = {
+      data: {
+        game: "dota 2",
+
+        user: 5,
+
+        totalPayment: 5000,
+
+        idPayment: charge.id,
+
+        adressesShipping: "khokana lalitpur",
+      },
+    };
+
+    const validData = await strapi.service("api::blog.blog").create(datos);
+
+    createOrder.push(validData);
+
+    const sanitizedEntity = await this.sanitizeOutput(createOrder, ctx);
+
+    // console.log(sanitizedEntity);
+
+    return this.transformResponse(charge);
+    // return ctx;
+  },
+
   async create(ctx) {
     ctx.query = { ...ctx.query, locale: "en" };
     ctx.request.body.data.users_permissions_user = ctx.state.user.id;

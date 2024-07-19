@@ -12,5 +12,10 @@ module.exports = {
       path: "/blogs/review", // Only match when the URL parameter is composed of lowercase letters
       handler: "blog.findReview",
     },
+    {
+      method: "POST",
+      path: "/blogs/order",
+      handler: "blog.createOrder",
+    },
   ],
 };
