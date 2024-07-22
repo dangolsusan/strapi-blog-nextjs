@@ -1,6 +1,6 @@
 "use strict";
 
-const { authorize, createSpace } = require("../../../GoogleMeet");
+// const { authorize, createSpace } = require("../../../GoogleMeet");
 
 /**
  * blog controller
@@ -47,17 +47,17 @@ module.exports = createCoreController("api::blog.blog", ({ strapi }) => ({
   },
 
   async create(ctx) {
-    console.log("running ro ");
-    const authclient = await authorize();
-    const url = await createSpace(authclient);
-    console.log("rul", url);
+    // console.log("running ro ");
+    // const authclient = await authorize();
+    // const url = await createSpace(authclient);
+    // console.log("rul", url);
     ctx.query = { ...ctx.query, locale: "en" };
     ctx.request.body.data.users_permissions_user = ctx.state.user.id;
     const result = await super.create(ctx);
 
     // your custom logic for modifying the output
     result.meta.date = Date.now(); // change the date that is returned
-    result.url = url;
+    // result.url = url;
 
     // if (result) {
     //   strapi
