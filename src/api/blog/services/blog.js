@@ -28,3 +28,5 @@ module.exports = createCoreService("api::blog.blog", ({ strapi }) => ({
     return transporter.sendMail(options);
   },
 }));
+
+// test
