@@ -77,6 +77,12 @@
       "relation": "oneToMany",
       "target": "api::blog.blog",
       "mappedBy": "users_permissions_user"
+    },
+    "bookmarks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bookmark.bookmark",
+      "mappedBy": "user_bookmark"
     }
   }
 }

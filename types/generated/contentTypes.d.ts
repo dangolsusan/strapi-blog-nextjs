@@ -734,6 +734,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::blog.blog'
     >;
+    bookmarks: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::bookmark.bookmark'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -822,16 +827,61 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     description: Attribute.RichText;
     readTime: Attribute.String;
     title: Attribute.String;
+    bookmarks: Attribute.Relation<
+      'api::blog.blog',
+      'manyToMany',
+      'api::bookmark.bookmark'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBookmarkBookmark extends Schema.CollectionType {
+  collectionName: 'bookmarks';
+  info: {
+    singularName: 'bookmark';
+    pluralName: 'bookmarks';
+    displayName: 'Bookmark';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    user_bookmark: Attribute.Relation<
+      'api::bookmark.bookmark',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    bookmark_blogs: Attribute.Relation<
+      'api::bookmark.bookmark',
+      'manyToMany',
+      'api::blog.blog'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bookmark.bookmark',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bookmark.bookmark',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -984,6 +1034,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::blog.blog': ApiBlogBlog;
+      'api::bookmark.bookmark': ApiBookmarkBookmark;
       'api::comment.comment': ApiCommentComment;
       'api::general.general': ApiGeneralGeneral;
       'api::page.page': ApiPagePage;
