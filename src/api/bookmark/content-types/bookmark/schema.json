@@ -14,9 +14,9 @@
   "attributes": {
     "user_bookmark": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "bookmarks"
+      "inversedBy": "bookmark"
     },
     "bookmark_blogs": {
       "type": "relation",

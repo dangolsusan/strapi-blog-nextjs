@@ -734,9 +734,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::blog.blog'
     >;
-    bookmarks: Attribute.Relation<
+    bookmark: Attribute.Relation<
       'plugin::users-permissions.user',
-      'oneToMany',
+      'oneToOne',
       'api::bookmark.bookmark'
     >;
     createdAt: Attribute.DateTime;
@@ -860,7 +860,7 @@ export interface ApiBookmarkBookmark extends Schema.CollectionType {
   attributes: {
     user_bookmark: Attribute.Relation<
       'api::bookmark.bookmark',
-      'manyToOne',
+      'oneToOne',
       'plugin::users-permissions.user'
     >;
     bookmark_blogs: Attribute.Relation<
